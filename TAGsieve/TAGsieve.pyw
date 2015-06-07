@@ -70,7 +70,7 @@ class StripUi(QtGui.QDialog):
 		'''Check on typos and create attribute dictionary'''
 
 		attrs_dict = {}
-		target_attrs = attrs_text.lower().split('/')
+		target_attrs = attrs_text.split('/')
 
 		for tag in target_attrs:
 
