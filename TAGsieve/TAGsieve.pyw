@@ -70,7 +70,7 @@ class StripUi(QtGui.QDialog):
 		'''Check on typos and create attribute dictionary'''
 
 		attrs_dict = {}
-		target_attrs = attrs_text.split('/')
+		target_attrs = attrs_text.lower().split('/')
 
 		for tag in target_attrs:
 
@@ -87,7 +87,7 @@ class StripUi(QtGui.QDialog):
 	def file_clean(self, dirt_text):
 		'''Create tag list; check and create attribute dictionary; then pass this information to clean.'''
 
-		tags = [x.strip() for x in unicode(self.allowed_tags.text()).split(',')]
+		tags = [x.strip().lower() for x in unicode(self.allowed_tags.text()).split(',')]
 
 		try:
 			attrs = self.make_attrs_dict(self.allowed_attrs.text()) if len(self.allowed_attrs.text()) else {}

@@ -6,13 +6,13 @@ TAGsieve is a small HTML/XML stripper GUI application, written in Python and bas
 
 Basic use
 =========
-TAGsieve is a simple GUI application, so usage should be fairly straightforward. However, in order to avoid some errors, some simple rules should be followed.
+TAGsieve is a simple GUI application, so usage should be fairly straightforward.
 
- files can be specified based on their extension. 'Clean HTML' will only clean .html/.htm files and 'Clean XML' does the according job.	
-It is possible to clean both a single file and a complete directory of files, based on the path information.
+.. image:: tagsieveim.png
 
-Both tag and attribute whitelist should be entered according to a couple of rules.
-The tag whitelist must be a comma-separated list:
+TAGsieve strips tags of a single file or a directory of files. The application will recognize the nature of the input, and will check its nature based on the extension check below the path input field.
+
+TAGsieve follows bleach_ and works with tag and attribute whitelists: these tags and attributes will not be stripped. The tag whitelist must be a comma-separated list:
 
 .. code-block:: python
 
@@ -21,7 +21,6 @@ The tag whitelist must be a comma-separated list:
 The attribute whitelist must be entered according to the following pattern::
 
 	x₁:[a₁,..., aₙ,]/.../xₙ:[a₁,..., aₙ,] for each tag x₁-xₙ and attributes a₁-aₙ.
-
 
 Installation
 ============
@@ -36,5 +35,11 @@ Via source code
 If the executable does not work, try installing the prerequisites on your machine and subsequently install TAGsieve by running::
 
 	$ python setup.py install
+
+TAGsieve works with PyQt, so only installing the prerequisites may not be enough. Install PyQt by running::
+
+	$ apt-get install pyqt4
+
+Do not hesitate to contact me on any issues involving the use and installation of the application.
 
 .. _bleach: https://github.com/jsocol/bleach
