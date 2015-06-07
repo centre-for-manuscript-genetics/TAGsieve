@@ -9,8 +9,8 @@ Basic use
 TAGsieve is a simple GUI application that strips tags of a single file or a directory of files.
 
 .. image:: tagsieveim.png
-	:height: 300px
-	:width: 300px
+	:height: 300
+	:width: 300
 	:align: center
 
 It follows bleach_ and works with tag and attribute whitelists: these tags and attributes will not be stripped. The tag whitelist must be a comma-separated list:
