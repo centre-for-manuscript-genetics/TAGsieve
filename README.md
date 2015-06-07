@@ -11,13 +11,16 @@ It is possible to clean both a single file and a complete directory of files, ba
 
 Both tag and attribute whitelist should be entered according to a couple of rules.
 The tag whitelist must be a comma-separated list:
-'''
+
+```
 x₁,..., xₙ
-'''
+```
+
 The attribute whitelist must be entered according to the following pattern:
-'''
+
+```
 x₁:[a₁,..., aₙ,]/.../xₙ:[a₁,..., aₙ,] for each tag x₁-xₙ and attributes a₁-aₙ.
-'''
+```
 
 ## Installation
 ###Via 'dist' folder
@@ -30,16 +33,20 @@ If the executable does not work, try installing the prerequisites on your machin
 
 1. Have Python and pip installed on your machine.
 2. Install BeautifulSoup and bleach via pip:
-	'''
+
+	```
 	$ pip install beautifulsoup4
 	$ pip install bleach
-	'''
+	```
+
 3. Install PyQt:
-	'''
+
+	```
 	$ apt-get install pyqt4
-	'''
+	```
 
 The program can then be called by opening TAGsieve/ and executing TAGsieve.pyw or via terminal:
-'''
+
+```
 $ cd path/to/TAGsieve/ && ./TAGsieve.pyw
-'''
+```
