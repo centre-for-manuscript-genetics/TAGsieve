@@ -8,7 +8,7 @@ Basic use
 =========
 TAGsieve is a simple GUI application that strips tags of a single file or a directory of files.
 
-.. image:: tagsieveim.png
+.. image:: tagsievegui.png
 	:height: 200
 	:width: 200
 
