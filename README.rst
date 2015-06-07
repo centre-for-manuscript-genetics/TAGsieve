@@ -9,6 +9,8 @@ Basic use
 TAGsieve is a simple GUI application, so usage should be fairly straightforward.
 
 .. image:: tagsieveim.png
+	:scale: 60%
+	:align: center
 
 TAGsieve strips tags of a single file or a directory of files. The application will recognize the nature of the input, and will check its nature based on the extension check below the path input field.
 
