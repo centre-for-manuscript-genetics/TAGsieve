@@ -6,15 +6,14 @@ TAGsieve is a small HTML/XML stripper GUI application, written in Python and bas
 
 Basic use
 =========
-TAGsieve is a simple GUI application, so usage should be fairly straightforward.
+TAGsieve is a simple GUI application that strips tags of a single file or a directory of files.
 
 .. image:: tagsieveim.png
-	:scale: 60%
+	:height: 300px
+	:width: 300px
 	:align: center
 
-TAGsieve strips tags of a single file or a directory of files. The application will recognize the nature of the input, and will check its nature based on the extension check below the path input field.
-
-TAGsieve follows bleach_ and works with tag and attribute whitelists: these tags and attributes will not be stripped. The tag whitelist must be a comma-separated list:
+It follows bleach_ and works with tag and attribute whitelists: these tags and attributes will not be stripped. The tag whitelist must be a comma-separated list:
 
 .. code-block:: python
 
