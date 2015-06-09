@@ -25,22 +25,28 @@ The attribute whitelist must be entered according to the following pattern::
 
 Installation
 ============
+If you're on Linux, use the dist folder. In the other cases, install via source code.
+
+Via source code
+---------------
+Install Python on your machine. If you're on Windows or Mac, install the Anaconda distribution of Python.
+
+With Python installed, download the zip folder and run::
+
+	$ python setup.py install
+
+This should install the requirements used for TAGsieve. Start the program by running::
+
+	$ python TAGsieve/TAGsieve.pyw
+
+or::
+
+	$ ./TAGsieve/TAGsieve.pyw
+
 Via 'dist' folder
 -----------------
 Installation is not required. Save the 'dist' folder to your computer, open the folder location, and double click the TAGsieve executable.
 
-A dist folder has been build for Linux. Other platforms will be supported soon.
-
-Via source code
----------------
-If the executable does not work, try installing the prerequisites on your machine and subsequently install TAGsieve by running::
-
-	$ python setup.py install
-
-TAGsieve works with PyQt, so only installing the prerequisites may not be enough. Install PyQt by running::
-
-	$ apt-get install pyqt4
-
-Do not hesitate to contact me on any issues involving the use and installation of the application.
+A dist folder is only suitable for Linux.
 
 .. _bleach: https://github.com/jsocol/bleach
