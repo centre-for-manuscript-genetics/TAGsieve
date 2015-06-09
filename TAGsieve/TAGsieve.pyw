@@ -100,15 +100,10 @@ class StripUi(QtGui.QDialog):
 			soup = CleanDirtySoup(dirt_text, tags, attrs)
 			self.browser.append('Successfully cleaned %s' % (dirt_text.replace('\\', '/').split('/')[-1]))
 
-	def batch_clean(self, dirfile, extensions):
-		'''
-		Check if path is file or directory.
-		If file, check if file has not been cleaned, then clean.
-		If directory, then loop through its files via recursion.
-		'''
-
-		if os.path.isfile(dirfile) and any(ext in dirfile for ext in extensions):
+	def check_is_file_cleaned(self, dirfile, extensions):
+		if any(ext in dirfile for ext in extensions):
 			# The requested path is a file with extension in list of chosen extensions (i.e. .html, .htm, or .xml).
+			
 
 			fileName, fileExtension = os.path.splitext(dirfile)
 			neighbfiles = glob.glob(os.path.join(os.path.dirname(dirfile), '*'+fileExtension))
@@ -118,7 +113,21 @@ class StripUi(QtGui.QDialog):
 			else:
 				return self.file_clean(dirfile)
 
-		elif os.path.isdir(dirfile):
+		else:
+			# The extensions have been wrongly matched.
+			self.browser.append('E: Extensions do not match.')
+
+	def batch_clean(self, dirfile, extensions):
+		'''
+		Check if path is file or directory.
+		If file, check if file has not been cleaned, then clean.
+		If directory, then loop through its files via recursion.
+		'''
+
+		if os.path.isfile(dirfile):
+			self.check_is_file_cleaned(dirfile, extensions)
+
+		else:
 			# The requested path is a directory.
 
 			files_set = []
@@ -131,10 +140,6 @@ class StripUi(QtGui.QDialog):
 			if reply == QtGui.QMessageBox.Yes:
 				for filename in files_set:
 					self.batch_clean(filename, extensions)
-
-		else:
-			# The extensions have been wrongly matched.
-			self.browser.append('E: Extensions do not match.')
 
 	def clean_path(self):
 		'''Check if path is file or directory, then pass each file to file_clean()'''

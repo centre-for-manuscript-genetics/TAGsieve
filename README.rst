@@ -33,7 +33,11 @@ Install Python on your machine. If you're on Windows or Mac, install the Anacond
 
 With Python installed, download the zip folder and run::
 
-	$ python setup.py install
+	$ python setup.py install (delete, for developers)
+
+	use pip (register at PyPi: python setup.py register/publish)
+	Anaconda + run "$ conda install pyqt"
+
 
 This should install the requirements used for TAGsieve. Start the program by running::
 
