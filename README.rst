@@ -29,7 +29,7 @@ If you're on Linux, use the dist folder. In the other cases, install via source 
 
 Via source code
 ---------------
-Install Python on your machine. If you're on Windows or Mac, install the Anaconda distribution of Python.
+Install Python on your machine. If you're on Windows or Mac, install the Anaconda_ distribution of Python, as it includes the PyQt package needed for the GUI.
 
 With Python installed, download the zip folder and run::
 
@@ -50,3 +50,4 @@ Installation is not required. Save the 'dist' folder to your computer, open the 
 A dist folder is only suitable for Linux.
 
 .. _bleach: https://github.com/jsocol/bleach
+.. _Anaconda: http://continuum.io/downloads
