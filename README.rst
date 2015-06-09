@@ -43,11 +43,11 @@ or::
 
 	$ ./TAGsieve/TAGsieve.pyw
 
-Via 'dist' folder
+Via dist folder
 -----------------
 Installation is not required. Save the 'dist' folder to your computer, open the folder location, and double click the TAGsieve executable.
 
-A dist folder is only suitable for Linux.
+The dist folder is only suitable for Linux.
 
 .. _bleach: https://github.com/jsocol/bleach
 .. _Anaconda: http://continuum.io/downloads
