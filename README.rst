@@ -37,7 +37,7 @@ Then run::
 
 This should install the requirements used for TAGsieve. Start the program in terminal by running::
 
-	$ python TAGsieve
+	$ python -m TAGsieve
 
 .. _bleach: https://github.com/jsocol/bleach
 .. _Anaconda: http://continuum.io/downloads
