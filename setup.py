@@ -13,6 +13,7 @@ setup(
     long_description=open('README.rst').read(),
     author='Tom De Keyser',
     author_email = 'tomdekeyser7@gmail.com',
+    license='GPLv3',
     url='http://github.com/willibrord/TAGsieve',
     packages=['TAGsieve'],
     package_data={'': ['README.rst']},
