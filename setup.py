@@ -8,11 +8,12 @@ install_requires = [
 
 setup(
     name='TAGsieve',
-    version='0.1.0',
+    version='0.1.3',
     description='A small HTML/XML stripper GUI application.',
     long_description=open('README.rst').read(),
     author='Tom De Keyser',
     author_email = 'tomdekeyser7@gmail.com',
+    license='GPLv3',
     url='http://github.com/willibrord/TAGsieve',
     packages=['TAGsieve'],
     package_data={'': ['README.rst']},

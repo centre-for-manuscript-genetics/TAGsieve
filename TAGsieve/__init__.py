@@ -1,0 +1,3 @@
+import TAGsieveGui
+
+TAGsieveGui.main()

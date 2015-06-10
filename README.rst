@@ -25,22 +25,19 @@ The attribute whitelist must be entered according to the following pattern::
 
 Installation
 ============
-Via 'dist' folder
------------------
-Installation is not required. Save the 'dist' folder to your computer, open the folder location, and double click the TAGsieve executable.
+Install Python on your machine, using the Anaconda_ distribution. This includes the PyQt package needed for the GUI.
 
-A dist folder has been build for Linux. Other platforms will be supported soon.
+After installing the distribution, check if PyQt is there::
 
-Via source code
----------------
-If the executable does not work, try installing the prerequisites on your machine and subsequently install TAGsieve by running::
+	$ conda install pyqt
 
-	$ python setup.py install
+Then run::
 
-TAGsieve works with PyQt, so only installing the prerequisites may not be enough. Install PyQt by running::
+	$ pip install TAGsieve
 
-	$ apt-get install pyqt4
+This should install the requirements used for TAGsieve. Start the program in terminal by running::
 
-Do not hesitate to contact me on any issues involving the use and installation of the application.
+	$ python -m TAGsieve
 
 .. _bleach: https://github.com/jsocol/bleach
+.. _Anaconda: http://continuum.io/downloads
