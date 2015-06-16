@@ -1,13 +1,15 @@
-'''
-Class that removes HTML/XML tags based on the Python modules BeautifulSoup and bleach.
-The class ignores a set of allowed tags and attributes, and writing the results into a new '_cleaned' file.
-'''
-
 from bs4 import BeautifulSoup
 import bleach
 import sys, os
 
 class CleanDirtySoup(object):
+	'''
+	Class that removes HTML/XML tags based on the
+	Python modules BeautifulSoup and bleach.
+	The class ignores a set of allowed tags and attributes,
+	and writing the results into a new '_cleaned' file.
+	'''
+
 	unclean_file = ''
 	new_file = ''
 
@@ -26,10 +28,21 @@ class CleanDirtySoup(object):
 		self.make_cleansoup()
 		
 	def clean_dirtysoup(self):
+		'''
+		Sends the unclean file to BeautifulSoup parser.
+			The parsing unescapes HTML ascii characters.
+
+		The parsed HTML is then sent to bleach for cleaning. Unescaped HTML is correctly ignored.
+			The result has then to be re-encoded,
+			replacing unescaped ascii characters with their raw HTML string variants.
+			e.g. &ldquo; --> &#8220;
+
+		--- considering Python3, which uses native utf-8 ---
+		'''
 		dirtysoup = BeautifulSoup(open(self.unclean_file).read())
 
 		clean_soup =  bleach.clean(dirtysoup, self.allowed_tags, self.allowed_attrs, strip=True)
-		clean_soup = clean_soup.encode('ascii', 'ignore')
+		clean_soup = clean_soup.encode('ascii', 'xmlcharrefreplace')
 
 		return clean_soup
 
