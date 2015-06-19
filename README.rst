@@ -8,12 +8,12 @@ Basic use
 =========
 TAGsieve is a simple GUI application that strips tags of a single file or a directory of files.
 
+It follows bleach_ and works with tag, attribute, and style whitelists: these tags, attributes, or styles will not be stripped. Click the "Clean" button to clean a file or directory of files.
+
 .. image:: tagsievegui.png
 	:height: 200
 	:width: 200
 	:scale: 50%
-
-It follows bleach_ and works with tag and attribute whitelists: these tags and attributes will not be stripped. Click the "Clean" button to clean a file or directory of files.
 
 Installation
 ============

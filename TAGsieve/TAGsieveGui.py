@@ -4,7 +4,7 @@ import sys, os, glob, re
 from PyQt4 import QtCore, QtGui
 from CleanDirtySoup import CleanDirtySoup
 
-__version__ = "0.1.5"
+__version__ = "0.2.0"
 
 class StripUi(QtGui.QDialog):
 	'''
@@ -24,6 +24,8 @@ class StripUi(QtGui.QDialog):
 		self.allowed_tags = QtGui.QLineEdit('a, div')
 		aa_label = QtGui.QLabel('Enter allowed attributes (slash "/" separated):')
 		self.allowed_attrs = QtGui.QLineEdit('a:[href, target,]/*:[class,]')
+		as_label = QtGui.QLabel('Enter allowed styles (comma separated):')
+		self.allowed_styles = QtGui.QLineEdit('')
 
 		self.browser = QtGui.QTextBrowser()
 		self.browser.setFixedSize(QtCore.QSize(500,100))
@@ -39,6 +41,8 @@ class StripUi(QtGui.QDialog):
 		layout.addWidget(self.allowed_tags)
 		layout.addWidget(aa_label)
 		layout.addWidget(self.allowed_attrs)
+		layout.addWidget(as_label)
+		layout.addWidget(self.allowed_styles)
 		layout.addWidget(self.scbutton)
 		layout.addWidget(self.browser)
 
@@ -81,6 +85,13 @@ class StripUi(QtGui.QDialog):
 
 		return attrs_dict
 
+	def check_styleattr_present(self, styles_text):
+		'''Before returning style whitelist, check if style attribute has been added.'''
+		if 'style' in self.allowed_attrs.text():
+			return [x.strip().lower() for x in unicode(styles_text).split(',')]
+		else:
+			raise EOFError
+
 	def file_clean(self, dirt_text):
 		'''Create tag list; check and create attribute dictionary; then pass this information to clean.'''
 
@@ -88,13 +99,20 @@ class StripUi(QtGui.QDialog):
 
 		try:
 			attrs = self.make_attrs_dict(self.allowed_attrs.text()) if len(self.allowed_attrs.text()) else {}
+			styles = self.check_styleattr_present(self.allowed_styles.text()) if len(self.allowed_styles.text()) else []
+
 		except SyntaxError:
 			self.browser.append(
 				u'''E: Discovered mistake in your attribute entry. Be sure to input an attribute pattern x\u2081:[a\u2081,..., a\u2099,]/.../x\u2099:[a\u2081,..., a\u2099,] for each tag x\u2081-x\u2099 and attributes a\u2081-a\u2099.'''
 			)
 			raise
+		except EOFError:
+			self.browser.append(
+				u'''E: Style attribute not allowed. To add style attribute for all tags, enter *:[style] in allowed attributes.'''
+			)
+			raise
 		else:
-			soup = CleanDirtySoup(dirt_text, tags, attrs)
+			soup = CleanDirtySoup(dirt_text, tags, attrs, styles)
 			self.browser.append('Successfully cleaned %s' % (dirt_text.replace('\\', '/').split('/')[-1]))
 
 	def check_is_file_cleaned(self, dirfile, extensions):

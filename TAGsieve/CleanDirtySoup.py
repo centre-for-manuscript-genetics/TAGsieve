@@ -15,11 +15,13 @@ class CleanDirtySoup(object):
 
 	allowed_tags = []
 	allowed_attrs = {}
+	allowed_styles = []
 
-	def __init__(self, unclean_file, allowed_tags, allowed_attrs):
+	def __init__(self, unclean_file, allowed_tags, allowed_attrs, allowed_styles):
 		self.unclean_file = unclean_file
 		self.allowed_tags = allowed_tags
 		self.allowed_attrs = allowed_attrs
+		self.allowed_styles = allowed_styles
 
 		uncleanFile, uncleanExtension = os.path.splitext(unclean_file)
 
@@ -33,20 +35,19 @@ class CleanDirtySoup(object):
 			The parsing unescapes HTML ascii characters.
 
 		The parsed HTML is then sent to bleach for cleaning. Unescaped HTML is correctly ignored.
-			The result has then to be re-encoded,
+			The result is then re-encoded,
 			replacing unescaped ascii characters with their raw HTML string variants.
 			e.g. &ldquo; --> &#8220;
-
-		--- considering Python3, which uses native utf-8 ---
 		'''
 		dirtysoup = BeautifulSoup(open(self.unclean_file).read())
 
-		clean_soup =  bleach.clean(dirtysoup, self.allowed_tags, self.allowed_attrs, strip=True)
+		clean_soup =  bleach.clean(dirtysoup, self.allowed_tags, self.allowed_attrs, self.allowed_styles, strip=True)
 		clean_soup = clean_soup.encode('ascii', 'xmlcharrefreplace')
 
 		return clean_soup
 
 	def make_cleansoup(self):
+		'''Write the clean, non-ascii tree in the new file.'''
 		f = open(self.new_file, 'w')
 		f.write(self.clean_dirtysoup())
 
