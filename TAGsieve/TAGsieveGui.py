@@ -86,7 +86,7 @@ class StripUi(QtGui.QDialog):
 		return attrs_dict
 
 	def check_styleattr_present(self, styles_text):
-		'''Check if style attribute has been added.'''
+		'''Before returning style whitelist, check if style attribute has been added.'''
 		if 'style' in self.allowed_attrs.text():
 			return [x.strip().lower() for x in unicode(styles_text).split(',')]
 		else:
