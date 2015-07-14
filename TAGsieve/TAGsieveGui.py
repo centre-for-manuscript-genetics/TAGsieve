@@ -174,7 +174,7 @@ class StripUi(QtGui.QDialog):
 
 def main():
 	app = QtGui.QApplication(sys.argv)
-	app.setWindowIcon(QtGui.QIcon('../tagsieveicon.png'))
+	app.setWindowIcon(QtGui.QIcon('icon/tagsieveicon.png'))
 	strip = StripUi()
 	strip.show()
 	sys.exit(app.exec_())
