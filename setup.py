@@ -8,7 +8,7 @@ install_requires = [
 
 setup(
     name='TAGsieve',
-    version='1.0',
+    version='1.1',
     description='A small HTML/XML stripper GUI application.',
     long_description=open('README.rst').read(),
     author='Tom De Keyser',

@@ -4,7 +4,7 @@ import sys, os, glob, re
 from PyQt4 import QtCore, QtGui
 from CleanDirtySoup import CleanDirtySoup
 
-__version__ = "1.0"
+__version__ = "1.1"
 
 class StripUi(QtGui.QDialog):
 	'''
