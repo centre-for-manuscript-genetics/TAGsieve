@@ -4,7 +4,7 @@ import sys, os, glob, re
 from PyQt4 import QtCore, QtGui
 from CleanDirtySoup import CleanDirtySoup
 
-__version__ = "0.2.0"
+__version__ = "1.1"
 
 class StripUi(QtGui.QDialog):
 	'''
@@ -51,7 +51,7 @@ class StripUi(QtGui.QDialog):
 
 		self.connect(self.scbutton, QtCore.SIGNAL('clicked()'), self.clean_path)
 
-		self.setWindowTitle('TAGsieve v'+__version__)
+		self.setWindowTitle('TAGsieve '+__version__)
 
 	def extension_check(self):
 		'''Check which extension boxes have been ticked, and if at least one has been ticked.'''
@@ -174,6 +174,7 @@ class StripUi(QtGui.QDialog):
 
 def main():
 	app = QtGui.QApplication(sys.argv)
+	app.setWindowIcon(QtGui.QIcon('icon/tagsieveicon.png'))
 	strip = StripUi()
 	strip.show()
 	sys.exit(app.exec_())
