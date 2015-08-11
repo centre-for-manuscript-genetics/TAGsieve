@@ -2,13 +2,13 @@
 TAGsieve
 ========
 
-TAGsieve is a small HTML/XML stripper GUI application, written in Python and based on the HTML sanitizer bleach_. It strips or batch strips tags from .html, .htm, or .xml files, ignoring specified tags and attributes through whitelisting.
+TAGsieve is a simple HTML/XML stripper GUI application, written in Python and based on the HTML sanitizer bleach_. It strips or batch strips tags from .html, .htm, or .xml files, ignoring specified tags and attributes by means of whitelisting.
 
 Basic use
 =========
-TAGsieve is a simple GUI application that strips tags of a single file or a directory of files.
+TAGsieve is a simple GUI application that strips tags of a single file or of a directory of files.
 
-It follows bleach_ and works with tag, attribute, and style whitelists: these tags, attributes, or styles will not be stripped. Click the "Clean" button to clean a file or directory of files.
+It follows bleach_ and works with tag, attribute, and style whitelists: these tags, attributes, or styles will not be stripped. The "Clean" button cleans a file or directory of files.
 
 .. image:: tagsievegui.png
 	:height: 200
